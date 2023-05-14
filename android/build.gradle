@@ -33,19 +33,23 @@ buildscript {
 
  allprojects {
         repositories {
-             maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven { url 'https://maven.aliyun.com/repository/central'}
-        // maven { url 'https://maven.aliyun.com/repository/jcenter'}
+        // maven {  
+        // 允许使用外部库
+        // allowInsecureProtocol = true
+        // url 'https://maven.aliyun.com/repository/jcenter'
+        // }
         maven { url 'https://maven.aliyun.com/repository/public' }
-
-         mavenCentral {
+        
+        // NOTE: 这个好像不用设置
+        mavenCentral {
             // We don't want to fetch react-native from Maven Central as there are
             // older versions over there.
             content {
                 excludeGroup("com.facebook.react")
             }
         }
-        }
-        
     }
+ }
